@@ -2,20 +2,7 @@ const roulette = document.getElementById("roulette");
 const resultDiv = document.getElementById("result");
 let spins = 0;
 let numbers = Array.from({ length: 15 }, (_, i) => i + 1);
-
-// Crear sectores de la ruleta
-function createRoulette() {
-    const angleStep = 360 / numbers.length;
-    numbers.forEach((num, i) => {
-        const sector = document.createElement("div");
-        sector.className = "sector";
-        sector.style.transform = `rotate(${i * angleStep}deg) skewY(${90 - angleStep}deg)`;
-        sector.style.background = i % 2 === 0 ? "#0078D7" : "#00BCD4";
-        sector.textContent = num;
-        roulette.appendChild(sector);
-    });
-}
-createRoulette();
+let clickSound = new Audio("https://actions.google.com/sounds/v1/alarms/click_clock.ogg");
 
 function spinRoulette() {
     spins++;
@@ -29,11 +16,19 @@ function spinRoulette() {
         result = numbers[Math.floor(Math.random() * numbers.length)];
     }
 
-    // Animación de giro natural
-    const rotation = 360 * 5 + (result - 1) * (360 / numbers.length);
+    // Giro natural con desaceleración
+    const rotation = 360 * 6 + (result - 1) * (360 / numbers.length);
     roulette.style.transform = `rotate(${rotation}deg)`;
+
+    // Sonido de clic mientras gira
+    let clicks = 0;
+    const clickInterval = setInterval(() => {
+        clickSound.play();
+        clicks++;
+        if (clicks > 40) clearInterval(clickInterval);
+    }, 100);
 
     setTimeout(() => {
         resultDiv.textContent = `Resultado: ${result}`;
-    }, 4000);
+    }, 5000);
 }
