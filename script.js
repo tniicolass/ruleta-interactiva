@@ -10,19 +10,18 @@ let specialIndex = 0;
 // Sonido de clic
 let clickSound = new Audio("https://actions.google.com/sounds/v1/alarms/click_clock.ogg");
 
-// Crear sectores con números visibles
-function createRoulette() {
+// Crear etiquetas de números alrededor
+function createLabels() {
     const angleStep = 360 / numbers.length;
     numbers.forEach((num, i) => {
-        const sector = document.createElement("div");
-        sector.className = "sector";
-        sector.style.transform = `rotate(${i * angleStep}deg) skewY(${90 - angleStep}deg)`;
-        sector.style.background = i % 2 === 0 ? "#0078D7" : "#00BCD4";
-        sector.textContent = num;
-        roulette.appendChild(sector);
+        const label = document.createElement("div");
+        label.className = "number-label";
+        label.style.transform = `rotate(${i * angleStep}deg) translateY(-130px)`;
+        label.textContent = num;
+        roulette.appendChild(label);
     });
 }
-createRoulette();
+createLabels();
 
 function spinRoulette() {
     spins++;
@@ -36,14 +35,13 @@ function spinRoulette() {
         result = numbers[Math.floor(Math.random() * numbers.length)];
     }
 
-    // Giro completo con varias vueltas (10 vueltas)
+    // Giro completo con varias vueltas
     const rotation = 360 * 10 + (result - 1) * (360 / numbers.length);
-    roulette.style.transition = "transform 6s cubic-bezier(0.1, 0.9, 0.3, 1)";
     roulette.style.transform = `rotate(${rotation}deg)`;
 
-    // Sonido sincronizado con el giro
+    // Sonido sincronizado
     let clicks = 0;
-    const totalClicks = 60; // cantidad de clics durante el giro
+    const totalClicks = 60;
     const clickInterval = setInterval(() => {
         clickSound.play();
         clicks++;
