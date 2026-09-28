@@ -41,25 +41,18 @@ body {
     position: relative;
     border: 8px solid #fff;
     transition: transform 5s cubic-bezier(0.1, 0.9, 0.3, 1);
-    background: conic-gradient(#0078D7 0deg 24deg,
-            #00BCD4 24deg 48deg,
-            #0078D7 48deg 72deg,
-            #00BCD4 72deg 96deg,
-            #0078D7 96deg 120deg,
-            #00BCD4 120deg 144deg,
-            #0078D7 144deg 168deg,
-            #00BCD4 168deg 192deg,
-            #0078D7 192deg 216deg,
-            #00BCD4 216deg 240deg,
-            #0078D7 240deg 264deg,
-            #00BCD4 264deg 288deg,
-            #0078D7 288deg 312deg,
-            #00BCD4 312deg 336deg,
-            #0078D7 336deg 360deg);
 }
 
-#result {
-    margin-top: 20px;
-    font-size: 22px;
+.sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
     font-weight: bold;
+    color: #fff;
 }
