@@ -1,0 +1,247 @@
+:root {
+    color-scheme: light;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: #edf2f8;
+    color: #24344b;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    --ink: #24344b;
+    --paper: #f8fafc;
+    --blue: #4268cc;
+    --coral: #d95655;
+    --teal: #137e6b;
+    --violet: #8255ae;
+    --ochre: #a7740c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100svh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 50% 38%, #ffffff 0, transparent 54%),
+        radial-gradient(circle at 12% 82%, #ccefe5 0, transparent 25%),
+        radial-gradient(circle at 90% 18%, #ffe1d8 0, transparent 22%),
+        #edf2f8;
+}
+
+.game {
+    width: min(100%, 610px);
+    padding: 34px 22px 38px;
+    text-align: center;
+    animation: arrive 650ms ease-out both;
+}
+
+.masthead {
+    margin-bottom: 23px;
+}
+
+.eyebrow,
+.spin-count {
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+h1 {
+    margin: 7px 0 3px;
+    color: var(--ink);
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: clamp(38px, 9vw, 54px);
+    font-weight: 800;
+}
+
+.masthead p {
+    margin: 0;
+    color: #617087;
+    font-size: 14px;
+}
+
+.roulette-stage {
+    position: relative;
+    width: min(82vw, 390px);
+    aspect-ratio: 1;
+    margin: 0 auto;
+}
+
+.wheel-frame {
+    position: absolute;
+    inset: 13px;
+    padding: 9px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #dce5f2;
+    box-shadow: 0 0 0 1px #cbd6e5, 0 16px 45px #34476526;
+}
+
+.wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: conic-gradient(
+        from -12deg,
+        var(--blue) 0deg 24deg,
+        var(--coral) 24deg 48deg,
+        var(--teal) 48deg 72deg,
+        var(--violet) 72deg 96deg,
+        var(--ochre) 96deg 120deg,
+        var(--blue) 120deg 144deg,
+        var(--coral) 144deg 168deg,
+        var(--teal) 168deg 192deg,
+        var(--violet) 192deg 216deg,
+        var(--ochre) 216deg 240deg,
+        var(--blue) 240deg 264deg,
+        var(--coral) 264deg 288deg,
+        var(--teal) 288deg 312deg,
+        var(--violet) 312deg 336deg,
+        var(--ochre) 336deg 360deg
+    );
+    will-change: transform;
+}
+
+.wheel-labels {
+    position: absolute;
+    inset: 0;
+}
+
+.number-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 35px;
+    height: 25px;
+    place-items: center;
+    color: #fff;
+    font-size: clamp(13px, 3.8vw, 17px);
+    font-weight: 700;
+    text-shadow: 0 1px 3px #17253b99;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 48px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 2px 8px #24344b55;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
+
+.pointer {
+    position: absolute;
+    z-index: 2;
+    top: 2px;
+    left: 50%;
+    width: 27px;
+    height: 39px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: var(--ink);
+    filter: drop-shadow(0 2px 2px #24344b44);
+    transform: translateX(-50%);
+}
+
+.controls {
+    margin-top: 29px;
+}
+
+.result-label {
+    min-height: 20px;
+    margin: 0;
+    color: #617087;
+    font-size: 14px;
+}
+
+.result-number {
+    min-height: 53px;
+    margin: 0 0 14px;
+    color: var(--blue);
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: 46px;
+    line-height: 1.1;
+}
+
+.spin-button {
+    display: inline-flex;
+    min-width: 218px;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 22px;
+    border: 1px solid #3155b1;
+    border-radius: 8px;
+    background: var(--blue);
+    box-shadow: 0 4px 0 #304b91, 0 9px 20px #34476526;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    transition: filter 150ms ease, transform 150ms ease;
+}
+
+.spin-button:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.spin-button:active:not(:disabled) {
+    transform: translateY(2px);
+}
+
+.spin-button:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 4px;
+}
+
+.spin-button:disabled {
+    cursor: wait;
+    filter: saturate(.65);
+}
+
+.button-mark {
+    font-size: 19px;
+}
+
+.spin-count {
+    margin: 19px 0 0;
+    font-size: 10px;
+    color: var(--teal);
+}
+
+@keyframes arrive {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-height: 700px) and (min-width: 560px) {
+    .game { padding-top: 18px; padding-bottom: 18px; }
+    .masthead { margin-bottom: 12px; }
+    .roulette-stage { width: min(62vh, 340px); }
+    .controls { margin-top: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; }
+}

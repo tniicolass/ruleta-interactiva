@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102b24">
+    <title>La Ruleta | Juego de azar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="game">
+        <header class="masthead">
+            <span class="eyebrow">MESA DE JUEGO</span>
+            <h1>La Ruleta</h1>
+            <p>Quince números. Un solo destino.</p>
+        </header>
+
+        <section class="roulette-stage" aria-label="Ruleta de quince sectores">
+            <div class="pointer" aria-hidden="true"></div>
+            <div class="wheel-frame">
+                <div class="wheel" id="roulette" role="img" aria-label="Ruleta lista para girar">
+                    <div class="wheel-labels" id="wheel-labels" aria-hidden="true"></div>
+                    <div class="wheel-hub" aria-hidden="true"><span>15</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls" aria-live="polite">
+            <p class="result-label" id="result-label">¿Dónde caerá la suerte?</p>
+            <p class="result-number" id="result" aria-atomic="true">--</p>
+            <button class="spin-button" id="spin-button" type="button">
+                <span class="button-mark" aria-hidden="true">✦</span>
+                <span>Girar la ruleta</span>
+            </button>
+            <p class="spin-count" id="spin-count">GIRO 1</p>
+        </section>
+    </main>
+</body>
+</html>
