@@ -1,1 +1,47 @@
+body {
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
+.container {
+    text-align: center;
+}
+
+.roulette {
+    width: 200px;
+    height: 200px;
+    border: 8px solid #0078D7;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: conic-gradient(#0078D7, #00BCD4, #0078D7);
+    transition: transform 3s ease-out;
+}
+
+.number {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #00BCD4;
+}
