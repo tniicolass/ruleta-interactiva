@@ -1,3 +1,38 @@
+body {
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.roulette-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 20px auto;
+}
+
+.arrow {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid red;
+    z-index: 10;
+}
+
 .roulette {
     width: 300px;
     height: 300px;
@@ -32,4 +67,10 @@
     font-size: 14px;
     font-weight: bold;
     color: white;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
