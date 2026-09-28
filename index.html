@@ -3,17 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ruleta Aleatoria</title>
+    <title>Ruleta Interactiva</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>🎯 Ruleta Aleatoria</h1>
-        <div class="roulette" id="roulette">
-            <div class="number" id="number">0</div>
+        <h1>🎯 Ruleta Interactiva</h1>
+        <div class="roulette-container">
+            <div class="arrow"></div>
+            <div class="roulette" id="roulette"></div>
         </div>
         <button onclick="spinRoulette()">Girar</button>
+        <div id="result"></div>
     </div>
     <script src="script.js"></script>
 </body>

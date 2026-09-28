@@ -1,26 +1,39 @@
+const roulette = document.getElementById("roulette");
+const resultDiv = document.getElementById("result");
 let spins = 0;
+let numbers = Array.from({ length: 15 }, (_, i) => i + 1);
+
+// Crear sectores de la ruleta
+function createRoulette() {
+    const angleStep = 360 / numbers.length;
+    numbers.forEach((num, i) => {
+        const sector = document.createElement("div");
+        sector.className = "sector";
+        sector.style.transform = `rotate(${i * angleStep}deg) skewY(${90 - angleStep}deg)`;
+        sector.style.background = i % 2 === 0 ? "#0078D7" : "#00BCD4";
+        sector.textContent = num;
+        roulette.appendChild(sector);
+    });
+}
+createRoulette();
 
 function spinRoulette() {
-    const roulette = document.getElementById("roulette");
-    const numberDiv = document.getElementById("number");
-
     spins++;
     let result;
 
-    // Secuencia especial cada 3 giros, pero lineal
-    if (spins % 4 === 0) {
+    // Secuencia especial cada 3 giros
+    if (spins % 3 === 0) {
         const sequence = [3, 7, 8];
         result = sequence[Math.floor(Math.random() * sequence.length)];
     } else {
-        result = Math.floor(Math.random() * 10) + 1;
+        result = numbers[Math.floor(Math.random() * numbers.length)];
     }
 
-    // Animación de giro
-    const rotation = 360 * 5 + Math.random() * 360;
+    // Animación de giro natural
+    const rotation = 360 * 5 + (result - 1) * (360 / numbers.length);
     roulette.style.transform = `rotate(${rotation}deg)`;
 
-    // Mostrar número después del giro
     setTimeout(() => {
-        numberDiv.textContent = result;
-    }, 2800);
+        resultDiv.textContent = `Resultado: ${result}`;
+    }, 4000);
 }

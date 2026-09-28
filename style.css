@@ -13,35 +13,46 @@ body {
     text-align: center;
 }
 
-.roulette {
-    width: 200px;
-    height: 200px;
-    border: 8px solid #0078D7;
-    border-radius: 50%;
+.roulette-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
     margin: 20px auto;
+}
+
+.arrow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid red;
+    z-index: 10;
+}
+
+.roulette {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+    border: 8px solid #fff;
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: conic-gradient(#0078D7, #00BCD4, #0078D7);
-    transition: transform 3s ease-out;
-}
-
-.number {
-    font-size: 48px;
+    font-size: 16px;
     font-weight: bold;
-}
-
-button {
-    background-color: #0078D7;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #00BCD4;
+    color: #fff;
 }
