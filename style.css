@@ -1,0 +1,10 @@
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0078D7;
+    border: 2px solid #0078D7;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+}
